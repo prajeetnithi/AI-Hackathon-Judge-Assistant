@@ -57,4 +57,5 @@ with gr.Blocks(title="AI Hackathon Judge Assistant", theme=gr.themes.Default()) 
     )
 
 if __name__ == "__main__":
-    demo.launch() #If you want host your project inside the paranthesis give share=True i.e demo.launch(share=True)
+
+    demo.launch(server_name="0.0.0.0", server_port=7860)#If you want host your project inside the paranthesis give share=True i.e demo.launch(share=True)
