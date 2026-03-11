@@ -3,7 +3,8 @@ import google.generativeai as genai #To access API , we have to import the API l
 import fitz #Fitz , extracts text from pdf and analyse
 from PIL import Image #PIL , used analyse the image that uploaded
 from io import BytesIO #BytesIO, handles binary datas
-genai.configure(api_key="GEMINI_API_KEY") #Enter your API key
+import os
+genai.configure(api_key=os.getenv("GEMINI_API_KEY")) #Enter your API key
 model = genai.GenerativeModel('gemini-2.5-flash')
 def extract_text_from_pdf(pdf_file):
     document = fitz.open(pdf_file)
@@ -59,3 +60,4 @@ with gr.Blocks(title="AI Hackathon Judge Assistant", theme=gr.themes.Default()) 
 if __name__ == "__main__":
 
     demo.launch(server_name="0.0.0.0", server_port=7860)#If you want host your project inside the paranthesis give share=True i.e demo.launch(share=True)
+
